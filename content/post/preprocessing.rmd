@@ -115,9 +115,12 @@ knitr::opts_chunk$set(echo = TRUE)
 먼저 실제로 계절간 장르 인기의 변동이 있는지 확인해보자.
 
 ```{r , message=F,warning=F}
+library(tidyverse)
+
 sge = readr::read_csv('https://raw.githubusercontent.com/YooGunWook/1nurse4stat/master/data/model_data/eda_data_season_genre.csv')
 
-plotly::plot_ly(sge, x = ~season, y = ~ seasonal_mean, color = ~genre, type = "scatter",mode = 'markers+lines') 
+ggplot(data = sge, aes(x = season, y = seasonal_mean, color = genre, group = genre)) + geom_line() + geom_point()
+
 ```
 
 계절별 변동이 확실하게 보인다
