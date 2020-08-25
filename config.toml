@@ -5,6 +5,7 @@ theme = "hugo-theme-prav"
 
 pygmentsCodeFences = "true"
 pygmentsStyle = "perldoc"
+math = "true"
 
 # If you want to track using GA or use disqus for comments, uncomment the 
 # following and add the correct values
@@ -18,7 +19,7 @@ pygmentsStyle = "perldoc"
   tagline = "연세대학교 응용통계학과 15학번, ESC 22기"
   author = "오태환"
   authorImgPath = "/img/taihwan.jpg"
-  authorBlurb = "Something about me"
+  authorBlurb = "연세대학교 응용통계학과 15학번, ESC 22기"
 
 
 

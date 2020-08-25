@@ -1,0 +1,834 @@
+---
+title: Preprocessing & EDA
+author: 오태환
+date: '2020-06-17'
+slug: 음원차트-예측
+categories: [Project]
+tags: ["R", "Preprocessing", "EDA", "Tidyverse"]
+description: ''
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="preprocessing-eda" class="section level1">
+<h1>Preprocessing &amp; EDA</h1>
+<div id="파생변수-생성" class="section level2">
+<h2>파생변수 생성</h2>
+<div id="title_song-생성" class="section level3">
+<h3>title_song 생성</h3>
+<ul>
+<li><p>Idea : 높은 인기로 인해 음원차트에 2곡 이상의 곡을 진입시킨 가수들이 있다. 타이틀곡이 아닌 곡의 경우에는 가수의 다른 지표가 좋아도 타이틀곡에 비해 순위가 낮을 수 밖에 없다. 따라서 그 주차에 한 가수가 진입시킨 곡들 중에 가장 순위가 높은 곡을 title_song이라고 정하고 title_song인 경우는 TRUE, 아닌 경우는 FALSE를 할당하는 변수를 만들었다.</p></li>
+<li><p>Example :</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>나의 의미</td>
+<td>2019-01-02</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>Roller Coster</td>
+<td>2019-01-02</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>한 주차에 같은 가수의 곡이 세 개 있다. 이런 경우 가장 높은 순위인 <strong>벌써 12시</strong>에 TRUE를 할당하고 나머지엔 FALSE를 할당한다.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+<th>title_song</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>나의 의미</td>
+<td>2019-01-02</td>
+<td>5</td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>Roller Coster</td>
+<td>2019-01-02</td>
+<td>6</td>
+<td>FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="previous_ranking-생성" class="section level3">
+<h3>previous_ranking 생성</h3>
+<ul>
+<li><p>Idea : 당연히 음원차트 순위 예측은 이전 순위에 영향을 받을 것이다. 따라서 기존에 차트에 있는 곡은 이전주차 순위를, 신곡의 경우는 그 가수가 직전에 낸 음반의 title_song의 rank_g중 가장 높은(1에 가까운) 순위를 할당하였다. rank의 영향력을 줄이기 위해 rank를 그대로 활용하는 것 보단, 1~200까지의 rank를 1, 10, 20, 30 과 같이 20개의 그룹으로 만들어서 넣었다.</p></li>
+<li><p>Example :</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-09</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-16</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-13</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-20</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-27</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>맨 위 행의 경우는 이전 곡에 대한 정보가 없다. 따라서 previous_ranking에 NA가 할당된다.</li>
+<li>두 번째 행의 경우는 이전 주차의 순위가 1위이므로 previous_ranking에 1이 할당된다.</li>
+<li>네 번째 행의 경우는 신곡이므로 이전 곡의 top ranking인 1이 할당된다.</li>
+<li>다섯 번째 행의 경우는 이전 주차의 순위인 1위가 할당된다.</li>
+</ul>
+<p>할당 결과는 다음과 같다</p>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+<th>previous_ranking</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-09</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-16</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-13</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-20</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>Snapping</td>
+<td>2019-10-27</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="top_freq-생성" class="section level3">
+<h3>top_freq 생성</h3>
+<ul>
+<li><p>Idea : 음원 중엔 소위 “연금”이라고 불리는 곡들이 있다. 장기간 차트에 진입했다는 것을 의미한다. 우리는 그러한 오랜 기간 사랑받은 곡을 판별하기 위해 이러한 변수를 만들었다.</p></li>
+<li><p>Example :</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-09</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-16</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-23</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-10-13</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-11-20</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-12-20</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>트와이스</td>
+<td>Signal</td>
+<td>2019-11-27</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>트와이스</td>
+<td>Signal</td>
+<td>2019-12-27</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>블랙핑크</td>
+<td>불장난</td>
+<td>2019-12-27</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>이제 각 곡이 차트인 한 횟수를 세어 칼럼을 만들자</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>artist</th>
+<th>name</th>
+<th>week</th>
+<th>rank_g</th>
+<th>top_freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-02</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-09</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-16</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>청하</td>
+<td>벌써 12시</td>
+<td>2019-01-23</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-10-13</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-11-20</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>오마이걸</td>
+<td>불꽃놀이</td>
+<td>2019-12-20</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>트와이스</td>
+<td>Signal</td>
+<td>2019-10-27</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>트와이스</td>
+<td>Signal</td>
+<td>2019-11-27</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>블랙핑크</td>
+<td>불장난</td>
+<td>2019-12-27</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="season_genre_score-생성" class="section level3">
+<h3>season_genre_score 생성</h3>
+<ul>
+<li><p>Idea : 가을 겨울엔 발라드, 여름엔 댄스. 보통 사람들의 인식 속에 계절별로 인기있는 장르가 다르다. 실제로도 그런 경향이 있는지 확인하고 싶었다.</p></li>
+<li><p>Process</p></li>
+</ul>
+<p>먼저 실제로 계절간 장르 인기의 변동이 있는지 확인해보자.</p>
+<pre class="r"><code>sge = readr::read_csv(&#39;https://raw.githubusercontent.com/YooGunWook/1nurse4stat/master/data/model_data/eda_data_season_genre.csv&#39;)
+
+plotly::plot_ly(sge, x = ~season, y = ~ seasonal_mean, color = ~genre, type = &quot;scatter&quot;,mode = &#39;markers+lines&#39;) </code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"4e7431ca261d":["function () ","plotlyVisDat"]},"cur_data":"4e7431ca261d","attrs":{"4e7431ca261d":{"x":{},"y":{},"mode":"markers+lines","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"season","type":"category","categoryorder":"array","categoryarray":["fall","spring","summer","winter"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"seasonal_mean"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["fall","spring","summer","winter"],"y":[7.378125,7.83734939759036,7.540625,7.91103202846975],"mode":"markers+lines","type":"scatter","name":"R&B/소울","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[6.94153846153846,7.17584097859327,6.41950646298472,7.87220026350461],"mode":"markers+lines","type":"scatter","name":"댄스","marker":{"color":"rgba(189,173,133,1)","line":{"color":"rgba(189,173,133,1)"}},"textfont":{"color":"rgba(189,173,133,1)"},"error_y":{"color":"rgba(189,173,133,1)"},"error_x":{"color":"rgba(189,173,133,1)"},"line":{"color":"rgba(189,173,133,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[5.78338278931751,6.83423913043478,5.92307692307692,6.9811320754717],"mode":"markers+lines","type":"scatter","name":"드라마","marker":{"color":"rgba(245,146,102,1)","line":{"color":"rgba(245,146,102,1)"}},"textfont":{"color":"rgba(245,146,102,1)"},"error_y":{"color":"rgba(245,146,102,1)"},"error_x":{"color":"rgba(245,146,102,1)"},"line":{"color":"rgba(245,146,102,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[8.06756756756757,7.68518518518519,7.06474820143885,8.37931034482759],"mode":"markers+lines","type":"scatter","name":"락","marker":{"color":"rgba(217,150,141,1)","line":{"color":"rgba(217,150,141,1)"}},"textfont":{"color":"rgba(217,150,141,1)"},"error_y":{"color":"rgba(217,150,141,1)"},"error_x":{"color":"rgba(217,150,141,1)"},"line":{"color":"rgba(217,150,141,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[7.20135363790186,6.93490304709141,7.55978260869565,7.20695102685624],"mode":"markers+lines","type":"scatter","name":"랩/힙합","marker":{"color":"rgba(162,158,189,1)","line":{"color":"rgba(162,158,189,1)"}},"textfont":{"color":"rgba(162,158,189,1)"},"error_y":{"color":"rgba(162,158,189,1)"},"error_x":{"color":"rgba(162,158,189,1)"},"line":{"color":"rgba(162,158,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[6.26841085271318,7.36604987932422,6.51724137931035,6.80238627889635],"mode":"markers+lines","type":"scatter","name":"발라드","marker":{"color":"rgba(175,154,200,1)","line":{"color":"rgba(175,154,200,1)"}},"textfont":{"color":"rgba(175,154,200,1)"},"error_y":{"color":"rgba(175,154,200,1)"},"error_x":{"color":"rgba(175,154,200,1)"},"line":{"color":"rgba(175,154,200,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[7.83333333333333,8.625,10,10],"mode":"markers+lines","type":"scatter","name":"블루스/포크","marker":{"color":"rgba(215,144,197,1)","line":{"color":"rgba(215,144,197,1)"}},"textfont":{"color":"rgba(215,144,197,1)"},"error_y":{"color":"rgba(215,144,197,1)"},"error_x":{"color":"rgba(215,144,197,1)"},"line":{"color":"rgba(215,144,197,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[8.68181818181818,9.67857142857143,9.82758620689655,7.42105263157895],"mode":"markers+lines","type":"scatter","name":"애니메이션/게임","marker":{"color":"rgba(219,162,168,1)","line":{"color":"rgba(219,162,168,1)"}},"textfont":{"color":"rgba(219,162,168,1)"},"error_y":{"color":"rgba(219,162,168,1)"},"error_x":{"color":"rgba(219,162,168,1)"},"line":{"color":"rgba(219,162,168,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[6.91828793774319,6.94444444444444,6.88808664259928,7.49130434782609],"mode":"markers+lines","type":"scatter","name":"인디","marker":{"color":"rgba(189,198,118,1)","line":{"color":"rgba(189,198,118,1)"}},"textfont":{"color":"rgba(189,198,118,1)"},"error_y":{"color":"rgba(189,198,118,1)"},"error_x":{"color":"rgba(189,198,118,1)"},"line":{"color":"rgba(189,198,118,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[8.08571428571429,8.45161290322581,8.14159292035398,8.28409090909091],"mode":"markers+lines","type":"scatter","name":"일렉트로니카","marker":{"color":"rgba(186,217,78,1)","line":{"color":"rgba(186,217,78,1)"}},"textfont":{"color":"rgba(186,217,78,1)"},"error_y":{"color":"rgba(186,217,78,1)"},"error_x":{"color":"rgba(186,217,78,1)"},"line":{"color":"rgba(186,217,78,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[7.91666666666667,7.27586206896552,8.57894736842105,8.15254237288136],"mode":"markers+lines","type":"scatter","name":"전체","marker":{"color":"rgba(227,217,62,1)","line":{"color":"rgba(227,217,62,1)"}},"textfont":{"color":"rgba(227,217,62,1)"},"error_y":{"color":"rgba(227,217,62,1)"},"error_x":{"color":"rgba(227,217,62,1)"},"line":{"color":"rgba(227,217,62,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["spring"],"y":[8],"mode":"markers+lines","type":"scatter","name":"정통","marker":{"color":"rgba(252,214,66,1)","line":{"color":"rgba(252,214,66,1)"}},"textfont":{"color":"rgba(252,214,66,1)"},"error_y":{"color":"rgba(252,214,66,1)"},"error_x":{"color":"rgba(252,214,66,1)"},"line":{"color":"rgba(252,214,66,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","winter"],"y":[9.5,7.88235294117647],"mode":"markers+lines","type":"scatter","name":"캐롤","marker":{"color":"rgba(241,204,114,1)","line":{"color":"rgba(241,204,114,1)"}},"textfont":{"color":"rgba(241,204,114,1)"},"error_y":{"color":"rgba(241,204,114,1)"},"error_x":{"color":"rgba(241,204,114,1)"},"line":{"color":"rgba(241,204,114,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[9.57894736842105,8.6864406779661,5.53846153846154,9.97916666666667],"mode":"markers+lines","type":"scatter","name":"트로트","marker":{"color":"rgba(226,195,150,1)","line":{"color":"rgba(226,195,150,1)"}},"textfont":{"color":"rgba(226,195,150,1)"},"error_y":{"color":"rgba(226,195,150,1)"},"error_x":{"color":"rgba(226,195,150,1)"},"line":{"color":"rgba(226,195,150,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[8.71637426900585,8.63377609108159,8.28205128205128,8.91204588910134],"mode":"markers+lines","type":"scatter","name":"팝","marker":{"color":"rgba(204,187,165,1)","line":{"color":"rgba(204,187,165,1)"}},"textfont":{"color":"rgba(204,187,165,1)"},"error_y":{"color":"rgba(204,187,165,1)"},"error_x":{"color":"rgba(204,187,165,1)"},"line":{"color":"rgba(204,187,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["fall","spring","summer","winter"],"y":[7.32352941176471,10,6.41538461538462,8.75510204081633],"mode":"markers+lines","type":"scatter","name":"해외영화","marker":{"color":"rgba(179,179,179,1)","line":{"color":"rgba(179,179,179,1)"}},"textfont":{"color":"rgba(179,179,179,1)"},"error_y":{"color":"rgba(179,179,179,1)"},"error_x":{"color":"rgba(179,179,179,1)"},"line":{"color":"rgba(179,179,179,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>계절별 변동이 확실하게 보인다</p>
+<ul>
+<li>season_genre_score 만들기</li>
+</ul>
+<pre class="r"><code>knitr::kable(sge)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">genre</th>
+<th align="left">season</th>
+<th align="right">seasonal_mean</th>
+<th align="right">genre_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">정통</td>
+<td align="left">spring</td>
+<td align="right">8.000000</td>
+<td align="right">8.000000</td>
+</tr>
+<tr class="even">
+<td align="left">블루스/포크</td>
+<td align="left">fall</td>
+<td align="right">7.833333</td>
+<td align="right">8.275862</td>
+</tr>
+<tr class="odd">
+<td align="left">블루스/포크</td>
+<td align="left">spring</td>
+<td align="right">8.625000</td>
+<td align="right">8.275862</td>
+</tr>
+<tr class="even">
+<td align="left">블루스/포크</td>
+<td align="left">summer</td>
+<td align="right">10.000000</td>
+<td align="right">8.275862</td>
+</tr>
+<tr class="odd">
+<td align="left">블루스/포크</td>
+<td align="left">winter</td>
+<td align="right">10.000000</td>
+<td align="right">8.275862</td>
+</tr>
+<tr class="even">
+<td align="left">트로트</td>
+<td align="left">fall</td>
+<td align="right">9.578947</td>
+<td align="right">8.672986</td>
+</tr>
+<tr class="odd">
+<td align="left">트로트</td>
+<td align="left">spring</td>
+<td align="right">8.686441</td>
+<td align="right">8.672986</td>
+</tr>
+<tr class="even">
+<td align="left">트로트</td>
+<td align="left">summer</td>
+<td align="right">5.538462</td>
+<td align="right">8.672986</td>
+</tr>
+<tr class="odd">
+<td align="left">트로트</td>
+<td align="left">winter</td>
+<td align="right">9.979167</td>
+<td align="right">8.672986</td>
+</tr>
+<tr class="even">
+<td align="left">해외영화</td>
+<td align="left">fall</td>
+<td align="right">7.323529</td>
+<td align="right">7.593750</td>
+</tr>
+<tr class="odd">
+<td align="left">해외영화</td>
+<td align="left">spring</td>
+<td align="right">10.000000</td>
+<td align="right">7.593750</td>
+</tr>
+<tr class="even">
+<td align="left">해외영화</td>
+<td align="left">summer</td>
+<td align="right">6.415385</td>
+<td align="right">7.593750</td>
+</tr>
+<tr class="odd">
+<td align="left">해외영화</td>
+<td align="left">winter</td>
+<td align="right">8.755102</td>
+<td align="right">7.593750</td>
+</tr>
+<tr class="even">
+<td align="left">발라드</td>
+<td align="left">fall</td>
+<td align="right">6.268411</td>
+<td align="right">6.778738</td>
+</tr>
+<tr class="odd">
+<td align="left">발라드</td>
+<td align="left">spring</td>
+<td align="right">7.366050</td>
+<td align="right">6.778738</td>
+</tr>
+<tr class="even">
+<td align="left">발라드</td>
+<td align="left">summer</td>
+<td align="right">6.517241</td>
+<td align="right">6.778738</td>
+</tr>
+<tr class="odd">
+<td align="left">발라드</td>
+<td align="left">winter</td>
+<td align="right">6.802386</td>
+<td align="right">6.778738</td>
+</tr>
+<tr class="even">
+<td align="left">애니메이션/게임</td>
+<td align="left">fall</td>
+<td align="right">8.681818</td>
+<td align="right">8.458065</td>
+</tr>
+<tr class="odd">
+<td align="left">애니메이션/게임</td>
+<td align="left">spring</td>
+<td align="right">9.678571</td>
+<td align="right">8.458065</td>
+</tr>
+<tr class="even">
+<td align="left">애니메이션/게임</td>
+<td align="left">summer</td>
+<td align="right">9.827586</td>
+<td align="right">8.458065</td>
+</tr>
+<tr class="odd">
+<td align="left">애니메이션/게임</td>
+<td align="left">winter</td>
+<td align="right">7.421053</td>
+<td align="right">8.458065</td>
+</tr>
+<tr class="even">
+<td align="left">락</td>
+<td align="left">fall</td>
+<td align="right">8.067568</td>
+<td align="right">7.809850</td>
+</tr>
+<tr class="odd">
+<td align="left">락</td>
+<td align="left">spring</td>
+<td align="right">7.685185</td>
+<td align="right">7.809850</td>
+</tr>
+<tr class="even">
+<td align="left">락</td>
+<td align="left">summer</td>
+<td align="right">7.064748</td>
+<td align="right">7.809850</td>
+</tr>
+<tr class="odd">
+<td align="left">락</td>
+<td align="left">winter</td>
+<td align="right">8.379310</td>
+<td align="right">7.809850</td>
+</tr>
+<tr class="even">
+<td align="left">캐롤</td>
+<td align="left">fall</td>
+<td align="right">9.500000</td>
+<td align="right">8.052632</td>
+</tr>
+<tr class="odd">
+<td align="left">캐롤</td>
+<td align="left">winter</td>
+<td align="right">7.882353</td>
+<td align="right">8.052632</td>
+</tr>
+<tr class="even">
+<td align="left">일렉트로니카</td>
+<td align="left">fall</td>
+<td align="right">8.085714</td>
+<td align="right">8.244506</td>
+</tr>
+<tr class="odd">
+<td align="left">일렉트로니카</td>
+<td align="left">spring</td>
+<td align="right">8.451613</td>
+<td align="right">8.244506</td>
+</tr>
+<tr class="even">
+<td align="left">일렉트로니카</td>
+<td align="left">summer</td>
+<td align="right">8.141593</td>
+<td align="right">8.244506</td>
+</tr>
+<tr class="odd">
+<td align="left">일렉트로니카</td>
+<td align="left">winter</td>
+<td align="right">8.284091</td>
+<td align="right">8.244506</td>
+</tr>
+<tr class="even">
+<td align="left">R&amp;B/소울</td>
+<td align="left">fall</td>
+<td align="right">7.378125</td>
+<td align="right">7.660814</td>
+</tr>
+<tr class="odd">
+<td align="left">R&amp;B/소울</td>
+<td align="left">spring</td>
+<td align="right">7.837349</td>
+<td align="right">7.660814</td>
+</tr>
+<tr class="even">
+<td align="left">R&amp;B/소울</td>
+<td align="left">summer</td>
+<td align="right">7.540625</td>
+<td align="right">7.660814</td>
+</tr>
+<tr class="odd">
+<td align="left">R&amp;B/소울</td>
+<td align="left">winter</td>
+<td align="right">7.911032</td>
+<td align="right">7.660814</td>
+</tr>
+<tr class="even">
+<td align="left">팝</td>
+<td align="left">fall</td>
+<td align="right">8.716374</td>
+<td align="right">8.654321</td>
+</tr>
+<tr class="odd">
+<td align="left">팝</td>
+<td align="left">spring</td>
+<td align="right">8.633776</td>
+<td align="right">8.654321</td>
+</tr>
+<tr class="even">
+<td align="left">팝</td>
+<td align="left">summer</td>
+<td align="right">8.282051</td>
+<td align="right">8.654321</td>
+</tr>
+<tr class="odd">
+<td align="left">팝</td>
+<td align="left">winter</td>
+<td align="right">8.912046</td>
+<td align="right">8.654321</td>
+</tr>
+<tr class="even">
+<td align="left">인디</td>
+<td align="left">fall</td>
+<td align="right">6.918288</td>
+<td align="right">7.036477</td>
+</tr>
+<tr class="odd">
+<td align="left">인디</td>
+<td align="left">spring</td>
+<td align="right">6.944444</td>
+<td align="right">7.036477</td>
+</tr>
+<tr class="even">
+<td align="left">인디</td>
+<td align="left">summer</td>
+<td align="right">6.888087</td>
+<td align="right">7.036477</td>
+</tr>
+<tr class="odd">
+<td align="left">인디</td>
+<td align="left">winter</td>
+<td align="right">7.491304</td>
+<td align="right">7.036477</td>
+</tr>
+<tr class="even">
+<td align="left">드라마</td>
+<td align="left">fall</td>
+<td align="right">5.783383</td>
+<td align="right">6.479607</td>
+</tr>
+<tr class="odd">
+<td align="left">드라마</td>
+<td align="left">spring</td>
+<td align="right">6.834239</td>
+<td align="right">6.479607</td>
+</tr>
+<tr class="even">
+<td align="left">드라마</td>
+<td align="left">summer</td>
+<td align="right">5.923077</td>
+<td align="right">6.479607</td>
+</tr>
+<tr class="odd">
+<td align="left">드라마</td>
+<td align="left">winter</td>
+<td align="right">6.981132</td>
+<td align="right">6.479607</td>
+</tr>
+<tr class="even">
+<td align="left">랩/힙합</td>
+<td align="left">fall</td>
+<td align="right">7.201354</td>
+<td align="right">7.204964</td>
+</tr>
+<tr class="odd">
+<td align="left">랩/힙합</td>
+<td align="left">spring</td>
+<td align="right">6.934903</td>
+<td align="right">7.204964</td>
+</tr>
+<tr class="even">
+<td align="left">랩/힙합</td>
+<td align="left">summer</td>
+<td align="right">7.559783</td>
+<td align="right">7.204964</td>
+</tr>
+<tr class="odd">
+<td align="left">랩/힙합</td>
+<td align="left">winter</td>
+<td align="right">7.206951</td>
+<td align="right">7.204964</td>
+</tr>
+<tr class="even">
+<td align="left">전체</td>
+<td align="left">fall</td>
+<td align="right">7.916667</td>
+<td align="right">7.977099</td>
+</tr>
+<tr class="odd">
+<td align="left">전체</td>
+<td align="left">spring</td>
+<td align="right">7.275862</td>
+<td align="right">7.977099</td>
+</tr>
+<tr class="even">
+<td align="left">전체</td>
+<td align="left">summer</td>
+<td align="right">8.578947</td>
+<td align="right">7.977099</td>
+</tr>
+<tr class="odd">
+<td align="left">전체</td>
+<td align="left">winter</td>
+<td align="right">8.152542</td>
+<td align="right">7.977099</td>
+</tr>
+<tr class="even">
+<td align="left">댄스</td>
+<td align="left">fall</td>
+<td align="right">6.941539</td>
+<td align="right">7.084077</td>
+</tr>
+<tr class="odd">
+<td align="left">댄스</td>
+<td align="left">spring</td>
+<td align="right">7.175841</td>
+<td align="right">7.084077</td>
+</tr>
+<tr class="even">
+<td align="left">댄스</td>
+<td align="left">summer</td>
+<td align="right">6.419506</td>
+<td align="right">7.084077</td>
+</tr>
+<tr class="odd">
+<td align="left">댄스</td>
+<td align="left">winter</td>
+<td align="right">7.872200</td>
+<td align="right">7.084077</td>
+</tr>
+</tbody>
+</table>
+<p>이런 식으로 장르별 계절별 평균 rank_g를 구한 뒤</p>
+<p><span class="math display">\[
+(\frac{mean\ seasonal\ rank\ by\ genre - genre\ mean\ rank }{genre\ mean\ rank}) 
+\]</span></p>
+<p>이 계산을 통해 장르 평균 순위에 비해 계절별 평균 순위가 얼마나 다른지를 파생변수로 만든다.</p>
+</div>
+</div>
+<div id="transformation-for-skewed-data" class="section level2">
+<h2>Transformation for skewed data</h2>
+<p>왜도가 커보이는 데이터들을 찾아 log transformation으로 최대한 정규분포로 맞춰주자</p>
+<div id="nv_score" class="section level3">
+<h3>nv_score</h3>
+<pre class="r"><code>data%&gt;% select(nv_score) %&gt;% ggplot(aes(x = nv_score)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>데이터가 왼쪽에 쏠려있다.</p>
+<pre class="r"><code>data %&gt;% select(nv_score) %&gt;% transmute(nv_score = log(nv_score)) %&gt;%ggplot(aes(x = nv_score + 1)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+로그변환을 하니 정규분포에 더 가까워졌다.</p>
+<p>같은 방식으로 다른 왜도가 보이는 데이터들도 변환해주자.</p>
+</div>
+<div id="total_view" class="section level3">
+<h3>total_view</h3>
+<pre class="r"><code>data%&gt;% select(total_view) %&gt;% ggplot(aes(x = total_view)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(total_view) %&gt;% transmute(total_view = log(total_view)) %&gt;%ggplot(aes(x = total_view)) + geom_density() + ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="pd_score" class="section level3">
+<h3>pd_score</h3>
+<pre class="r"><code>data%&gt;% select(pd_score) %&gt;% ggplot(aes(x = pd_score)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(pd_score) %&gt;% transmute(pd_score = log(pd_score)) %&gt;%ggplot(aes(x = pd_score)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="dc_total_numb" class="section level3">
+<h3>dc_total_numb</h3>
+<pre class="r"><code>data%&gt;% select(dc_total_numb) %&gt;% ggplot(aes(x = dc_total_numb)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(dc_total_numb) %&gt;% transmute(dc_total_numb = log(dc_total_numb)) %&gt;%ggplot(aes(x = dc_total_numb)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="dc_mean_reccomend" class="section level3">
+<h3>dc_mean_reccomend</h3>
+<pre class="r"><code>data%&gt;% select(dc_mean_reccomend) %&gt;% ggplot(aes(x = dc_mean_reccomend)) + geom_density()+ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(dc_mean_reccomend) %&gt;% transmute(dc_mean_reccomend = log(dc_mean_reccomend)) %&gt;%ggplot(aes(x = dc_mean_reccomend)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="dc_mean_views" class="section level3">
+<h3>dc_mean_views</h3>
+<pre class="r"><code>data%&gt;% select(dc_mean_views) %&gt;% ggplot(aes(x = dc_mean_views)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(dc_mean_views) %&gt;% transmute(dc_mean_views = log(dc_mean_views)) %&gt;%ggplot(aes(x = dc_mean_views)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="drama_view" class="section level3">
+<h3>drama_view</h3>
+<pre class="r"><code>data%&gt;% select(drama_view) %&gt;% ggplot(aes(x = drama_view)) + geom_density()+ ggtitle(&quot;Before Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>data %&gt;% select(drama_view) %&gt;% transmute(drama_view = log(drama_view)) %&gt;%ggplot(aes(x = drama_view)) + geom_density()+ ggtitle(&quot;After Transformation&quot;)</code></pre>
+<p><img src="/post/preprocessing_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="scaling" class="section level2">
+<h2>Scaling</h2>
+<p><span class="math display">\[
+(\frac{x - min(x)}{max(x) - min(x)})
+\]</span></p>
+<p>이 식을 사용해 최소 0, 최대 1로 min-max scaling을 진행했다.</p>
+</div>
+</div>

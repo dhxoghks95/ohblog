@@ -1,26 +1,11 @@
 ---
-title: "[음원 데이터를 활용한 주간음원순위 예측](https://github.com/YooGunWook/1nurse4stat)"
-subtitle: "[2020-01 데이터사이언스입문 프로젝트](https://statkclee.github.io/ds-intro-2020/)"
-author: 
-    name: "사응일간 ([강동원](https://github.com/dw3624), [백원희](https://github.com/Wonhee-baek), [오태환](https://github.com/dhxoghks95), [유건욱](https://github.com/YooGunWook), [이청파](https://github.com/leechungpa))"
-date: 2020-08-25T16:12:43+09:00
-
+title: Preprocessing & EDA
+author: 오태환
+date: '2020-06-17'
 slug: 음원차트-예측
-categories: [Project]
+categories: ["Project"]
 tags: ["R", "Preprocessing", "EDA", "Tidyverse"]
 description: ''
-
-
-output:
-  html_document: 
-    toc: yes
-    toc_float: true
-    highlight: tango
-    code_folding: hide
-    number_section: true
-    self_contained: true
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
