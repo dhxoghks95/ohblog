@@ -1,4 +1,38 @@
 baseURL = "http://dhxoghks95.github.io/"
 languageCode = "en-us"
 title = "OH! DATA"
-theme = "hugo-clarity"
+theme = "hugo-theme-prav"
+
+pygmentsCodeFences = "true"
+pygmentsStyle = "perldoc"
+
+# If you want to track using GA or use disqus for comments, uncomment the 
+# following and add the correct values
+#googleanalytics = ""
+#disqusShortname = ""
+
+# The settings below are used throughout the theme.
+# Please update!
+[params]
+  title = "OH! Data"
+  tagline = "연세대학교 응용통계학과 15학번, ESC 22기"
+  author = "오태환"
+  authorImgPath = "/img/taihwan.jpg"
+  authorBlurb = "Something about me"
+
+
+
+# If you do not want a social icon, just comment it out
+# Please update the example values!
+[social]
+  email = "dhxoghks95@gmail.com"
+  github = "https://github.com/dhxoghks95"
+  
+
+
+# Set unsafe mode to allow markdownify to work with goldmark
+# This is important. Please do not delete. It is used to re-render markdown
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
