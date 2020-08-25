@@ -131,7 +131,9 @@ knitr::kable(sge)
 
 
 $$
-(\frac{mean\ seasonal\ rank\ by\ genre - genre\ mean\ rank }{genre\ mean\ rank}) 
+\begin{align}
+\frac{mean\ seasonal\ rank\ by\ genre - genre\ mean\ rank }{genre\ mean\ rank} 
+\end{align}
 $$
 
 
@@ -227,7 +229,9 @@ data %>% select(drama_view) %>% transmute(drama_view = log(drama_view)) %>%ggplo
 ## Scaling
 
 $$
+\begin{align}
 (\frac{x - min(x)}{max(x) - min(x)})
+\end{align}
 $$
 
 이 식을 사용해 최소 0, 최대 1로 min-max scaling을 진행했다.
