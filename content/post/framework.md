@@ -1,5 +1,5 @@
 ---
-title: "2. 베이지안 기초공사"
+title: "Bayesian Method with TensorFlow - 2. 베이지안 기초공사"
 date: 2020-08-28T02:25:06+09:00
 categories: ["Bayesian Method with TensorFlow"]
 tags: ["Bayesian", "TensorFlow", "Python"]
@@ -176,7 +176,7 @@ plt.tight_layout()
 ```
 
 
-![png](img/output_14_0.png)
+![output_14_0](https://user-images.githubusercontent.com/57588650/91476057-6c407e00-e8d7-11ea-846f-ed8ff0c7ae25.png)
 
 
 사후확률은 곡선으로 나타납니다. 그리고 우리의 불확실성은 곡선의 너비에 비례합니다. 위의 그래프에서 볼 수 있듯이, 우리의 사후확률들은 이리저리 움직이기 시작합니다. 마침내 우리가 점점 더 많은 데이터를 가져올 수록, 우리의 확률은 진짜 값인 $p=0.5$ 근처로 점점 더 타이트하게 모입니다.(점선으로 표현되어있습니다)
@@ -240,7 +240,8 @@ plt.title(r"Are there bugs in my code?");
 ```
 
 
-![png](img/output_23_0.png)
+![output_23_0](https://user-images.githubusercontent.com/57588650/91476235-a90c7500-e8d7-11ea-8bd9-f6dafde91381.png)
+
 
 
 여기서 볼 수 있는건, 사전 확률인 $p$가 낮을 때 디버깅 테스트를 모두 통과하면 서후 확률이 더 큰 폭으로 높아진다는 것입니다. 자 이제 사전 확률에 특정한 값을 넣어봅시다. 제가 생각할 땐 제가 뛰어난 프로그래머이기 때문에 현실적으로 제 코드에 20%의 확률로 버그가 없다고 가정하겠습니다. 더 현실적으로 하려면 이 코드가 얼마나 복잡한지에 대한 함수가 되어야겠지만 그냥 20%라고 해봅시다. 그러면 제 업데이트된 믿음, 즉 제 코드에 버그가 없을 것이란 사후 확률은 33%가 됩니다!(그래프의 점)
@@ -273,7 +274,8 @@ plt.legend(loc="upper left");
 ```
 
 
-![png](img/output_26_0.png)
+![output_26_0](https://user-images.githubusercontent.com/57588650/91476261-b3c70a00-e8d7-11ea-9861-bbd7056b7a62.png)
+
 
 
 우리가 모든 테스트를 통과했다는걸 발견하면 버그가 없을 확률이 높아진다는 것을 잘 봅시다. 테스트의 갯수를 늘린다면 우리는 버그가 없다는 확신($p = 1$)에 다다를 수 있을 것입니다.
