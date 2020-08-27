@@ -15,10 +15,10 @@ pygmentsStyle = "perldoc"
 # Please update!
 [params]
   title = "OH! Data"
-  tagline = "연세대학교 응용통계학과 15학번, ESC 22기"
+  tagline = "Oh Tai Hwan's Data Science Blog"
   author = "오태환"
-  authorImgPath = "/img/taihwan.jpg"
-  authorBlurb = "연세대학교 응용통계학과 15학번, ESC 22기"
+  authorImgPath = "/img/baseball.jpg"
+  authorBlurb = "연세대학교 응용통계학과, ESC"
 
 
 
