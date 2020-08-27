@@ -5,6 +5,8 @@ categories: ["Bayesian Method with TensorFlow"]
 tags: ["Bayesian", "TensorFlow", "Python"]
 ---
 
+# **Bayesian Method with TensorFlow**
+
 # 2. 베이지안 기초공사
 
 우리는 베이지안 처럼 생각할 때 확률로 해석될 수 있는 "믿음"에 관심이 있습니다. 우리는 A라는 사건에 대해 믿음을 가지고 있고, 그 믿음은 과거의 정보에 의해서 만들어진 것입니다. 예를 들자면 이전의 테스트에 의해 우리의 코드가 버그가 있는지 사전 믿음을 주는 것이죠.
