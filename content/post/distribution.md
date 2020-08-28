@@ -26,7 +26,7 @@ $Z$가 이산적이라면, 그것의 분포는 Probability Mass Function(이제 
 
 우리는 다음과 같은 pmf를 가진 Z가 포아송 분포를 따른다고 말합니다
 
-$$P(Z = k) =\frac{ \lambda^k e^{-\lambda} }{k!}, \; \; k=0,1,2, \dots $$
+$$P(Z = k) =\frac{ \lambda^k e^{-\lambda} }{k!}, k=0,1,2, \dots $$
 
 $\lambda$는 분포의 모수(parameter)라고 불립니다. 그리고 이것은 분포의 모양을 결정합니다. 포아송 분포에서 $\lambda$는 모든 양수를 가질 수 있습니다. $\lambda$가 점점 커질 수록, 더 큰 값에 더 큰 확률을 주고, 작아질 수록 더 작은 값에 더 큰 확률을 부여합니다. 즉 $\lambda$가 포아송 분포의 밀도를 나타낸다고 볼 수 있습니다.
 
@@ -38,7 +38,7 @@ $$ Z \sim \text{Poi}(\lambda) $$
 
 포아송 분포의 유용한 특징중 하나는 그것의 예측값이 다음과 같이 그것의 모수와 동일하다는 점입니다.
 
-$$E\large[ \;Z\; | \; \lambda \;\large] = \lambda $$
+$$E\large[ Z | \lambda] = \lambda $$
 
 우리는 이러한 특성을 자주 이용할 것이기 때문에 기억해두면 유용합니다. 밑에서 우리는 다른 $\lambda$를 가짐에 따라 pmf가 어떻게 변하는지를 그래프를 그림으로서 확인해볼겁니다. 확인해봐야할 첫 번째는 $\lambda$가 커질 수록 큰 값에 더 큰 확률을 부여한다는 접입니다. 두 번째로 확인해야 할 것은 그래프가 15에서 끝난다고 해서 분포가 15에서 끝나는 것은 아니라는 점입니다. 포아송 분포는 모든 음이 아닌 정수에 대해서 확률을 할당합니다.
 
@@ -178,7 +178,7 @@ $\lambda = 1.5$일 때 보다 $\lambda = 4.2$일 때 그래프가 더 오른쪽�
 
 pmf대신 연속 Random Variable은 Probability Density Function(pdf라고 합시다)를 가집니다. 쓸데없이 다른 이름 붙인거 같을 수 있지만, 밀도 함수(density function)과 질량 함수(mass function)은 굉장히 다릅니다. 연속 Random Variable의 예시로는 지수 분포를 들 수 있습니다. 지수 Random Variable의 pdf는 다음과 같습니다.
 
-$$f_Z(z | \lambda) = \lambda e^{-\lambda z }, \;\; z\ge 0$$
+$$f_Z(z | \lambda) = \lambda e^{-\lambda z },  z\ge 0$$
 
 포아송 Random Variable과 같이 지수 Random Variable은 오직 음이 아닌 값만을 가질 수 있습니다. 그런데 포아송과는 다르게 지수는 모든 양수를 값으로 가질 수 있고 정수일 필요는 없습니다. 4.25나 5.612401같은 값을 가질 수 있는거죠. 이 특성은 반드시 정수값을 가져야 하는 무언가의 수를 세는 데이터에는 별로입니다. 하지만 시간이나 온도, 또는 다른 정확하고 양수인 값에는 최고의 선택입니다. 밑의 그래프는 두 pdf가 다른 $\lambda$값을 가짐에 따라 모양이 어떻게 달라지는지를 보여줍니다.
 
@@ -188,7 +188,7 @@ $$Z \sim \text{Exp}(\lambda)$$
 
 특정한 $\lambda$가 주어졌을 때, 지수 Random Variable의 추정치는 $\lambda$의 역수와 같습니다. 즉 다음과 같이 쓸 수 있죠
 
-$$E[\; Z \;|\; \lambda \;] = \frac{1}{\lambda}$$
+$$E[Z|\lambda] = \frac{1}{\lambda}$$
 
 
 ```python
@@ -288,7 +288,7 @@ $$
 
 우리는 $\alpha$를 *초모수(hyper-parameter)* 혹은 *부모 변수(parent variable)*라고 부릅니다. 학술적인 용어로 말하자면 이것은 다른 모수에 영향을 주는 모수입니다. 우리의 $\alpha$에 대한 최초의 추측은 모델에 강한 영향을 끼치진 않습니다. 그렇기 떄문에 우리는 유연하게 선택할 수 있죠. 좋은 선택 방법 중 하나는 지수 분포의 모수를 데이터의 평균의 역수로 설정하는 것입니다. 우리가 $\lambda$를 지수 분포로 모델링 하기 떄문에, 앞에서 배운 지수 분포 추정값의 특징을 사용할 수 있는겁니다(추정값이 모수의 역수라는 특징).
 
-$$\frac{1}{N}\sum_{i=0}^N \;C_i \approx E[\; \lambda \; |\; \alpha ] = \frac{1}{\alpha}$$ 
+$$\frac{1}{N}\sum_{i=0}^N C_i \approx E[\lambda |\alpha ] = \frac{1}{\alpha}$$ 
 
 제가 추천하는 다른 방법은 각각의 $\lambda_i$에 두 개의 사전 확률을 부여하는 것입니다. 두 개의 다른 $\alpha$를 가지는 지수 분포를 만드는 것은 특정 포인트에서 문자 메시지 사용율이 변한다는 우리의 믿음을 반영하게 됩니다.
 
