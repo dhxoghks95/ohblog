@@ -13,7 +13,7 @@ Portfolio
 * Tel: 010-8551-5747
 * 사용 가능 언어: R, Python
 * 사용 가능 DBMS: Oracle
-* 연세대학교 응용통계학과 4학년
+* 연세대학교 응용통계학과 4학년(2015.3 ~ 재학중)
 * 선사고등학교 졸업
 * 연세대학교 응용통계학과 4학년 재학중
 * 연세대학교 통계 및 데이터사이언스 학회 ESC 22기 (2019.09 ~ 현재)
@@ -66,7 +66,7 @@ Crime Data를 이용해 Bayesian Imputation 및 범죄지도 그리기
 
 [데이콘 대회 링크](https://dacon.io/competitions/official/235615/overview/)<br>
 
-공공데이터와 BC카드 사용량 데이터를 활용한 포스트 코로나 카드 사용량 예측
+공공데이터와 BC카드 사용량 데이터를 활용한 포스트 코로나 카드 사용량 예측. 팀장으로 참여
 
 ### _빅콘 퓨처스리그 - KBO 2020시즌 잔여 승률 예측_
 'R' 'Python' 'Machine Learning' 'Time Series' 'Regression'
