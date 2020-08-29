@@ -125,14 +125,14 @@ inflearn의 강의를 통한 파이썬 알고리즘과 자료구조 스터디
 
 Cam Davison Pilon의
 
-Probabilistic-Programming-and-Bayesian-Methods-for-Hackers를 통해 베이지안 방법론들을 파이썬 텐서플로우로 구현해보는 스터디 입니다
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers를 통해 베이지안 방법론들을 파이썬 텐서플로우로 구현해보는 스터디
 
 ### _Oracle로 공부하는 SQL 200제_
 `Database` `Oracle` `RDBMS`
 
 [Github Link](https://github.com/dhxoghks95/sql_start)
 
-초보자를 위한 SQL 200제 교재를 공부하는 스터디 입니다.
+초보자를 위한 SQL 200제 교재를 공부하는 스터디
 
 
 
