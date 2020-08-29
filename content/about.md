@@ -1,12 +1,12 @@
 ---
-date: "2020-08-02"
+date: "2020-08-29"
 title: Resume
 ---
 
 Portfolio
 =============
 
-:baseball: About me
+📝 About me
 -------------
 * Name : 오태환
 * E-mail: dhxoghks95@gmail.com
@@ -23,7 +23,7 @@ Portfolio
   * 연세대학교 총장배 야구대회 4강(2019.4)
   * Slayers 동아리 회장(2018.04 ~ 2019.6)
 
-:baseball: Certifications
+📝 Certifications
 -------------
 ### _SQL 개발자(SQLD)_
 
@@ -35,7 +35,7 @@ Portfolio
 
 
 
-:baseball: Project
+📝 Project
 -------------
 
 ### _음원차트 예측 및 이상치 탐색_
@@ -68,6 +68,13 @@ Crime Data를 이용해 Bayesian Imputation 및 범죄지도 그리기
 
 공공데이터와 BC카드 사용량 데이터를 활용한 포스트 코로나 카드 사용량 예측
 
+### _빅콘 퓨처스리그 - KBO 2020시즌 잔여 승률 예측_
+'R' 'Python' 'Machine Learning' 'Time Series' 'Regression'
+
+[Github Link](https://github.com/dhxoghks95/Baseball_ChilliShrimp)
+
+머신러닝과 시계열 분석을 이용한 KBO 2020시즌 잔여 경기 승률 예측 프로젝트
+
 
 📝 Study 
 -------------
@@ -97,12 +104,38 @@ ESC 2020-Winter 학회 주제. "Introduction to Statistical Learning", "Python D
 
 ISL은 스터디 조장으로서 2020년 여름방학 세션 '머신러닝 스터디' 진행
 
-### _Deep Learning(진행중)_
-`Python` `Pytorch` `Deep Learning` `Neural Network`
+### _Deep Learning_
+`Python` `Pytorch` `Deep Learning` `Neural Network` `CNN` `RNN`
 
 [GitHub Link](https://github.com/dhxoghks95/ESC-20SUMMER) <br>
 
 ESC 2020-Summer 학회 주제. [모두의 딥러닝 시즌 2 with Pytorch](https://www.youtube.com/watch?v=7eldOrjQVi0&list=PLQ28Nx3M4JrhkqBVIXg-i5_CVVoS1UzAv)를 통해 Pytorch 사용법과 딥러닝 학습
+
+### _알고리즘과 자료구조_
+`Python` `Algorithm` `data structure`
+
+[GitHub Link](https://github.com/dhxoghks95/Python_Algorithm)
+
+inflearn의 강의를 통한 파이썬 알고리즘과 자료구조 스터디
+
+### _Tensor Flow로 실행하는 Bayesian Methods_
+`Bayesian` `Python` `TensorFlow`
+
+[Blog Link](https://dhxoghks95.github.io/tags/bayesian/)
+
+Cam Davison Pilon의
+
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers를 통해 베이지안 방법론들을 파이썬 텐서플로우로 구현해보는 스터디 입니다
+
+### _Oracle로 공부하는 SQL 200제_
+`Database` `Oracle` `RDBMS`
+
+[Github Link](https://github.com/dhxoghks95/sql_start)
+
+초보자를 위한 SQL 200제 교재를 공부하는 스터디 입니다.
+
+
+
 
 📚 Courses
 -------------
@@ -127,5 +160,3 @@ ESC 2020-Summer 학회 주제. [모두의 딥러닝 시즌 2 with Pytorch](https
 - 데이터마이닝
 - 데이터사이언스(2):네트워크분석
 - 데이터사이언스입문
-
-
