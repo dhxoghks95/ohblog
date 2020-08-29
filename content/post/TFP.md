@@ -30,14 +30,40 @@ TFP 코드는 읽기 쉽습니다. 바로 참신한 문법 때문이죠. 간단�
 
 우리의 데이터가 밑의 생성 모델(generative model)의 결과라고 가정하겠습니다.
 
-$$\begin{align*}
-\lambda_{1}^{(0)} &\sim \text{Exponential}(\text{rate}=\alpha) \\
-\lambda_{2}^{(0)} &\sim \text{Exponential}(\text{rate}=\alpha) \\
+$$
+\begin{align*}
+\lambda_{1}^{(0)} &\sim \text{Exponential}(\text{rate}=\alpha)
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
+\lambda_{2}^{(0)} &\sim \text{Exponential}(\text{rate}=\alpha)
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
 \tau &\sim \text{Uniform}[\text{low}=0,\text{high}=1) \\
-\text{for }  i &= 1\ldots N: \\
+\text{for }  i &= 1\ldots N: \
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
 \lambda_i &= \begin{cases} \lambda_{1}^{(0)}, & \tau > i/N \\ \lambda_{2}^{(0)}, & \text{otherwise}\end{cases}\\
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
  X_i &\sim \text{Poisson}(\text{rate}=\lambda_i)
-\end{align*}$$
+\end{align*}
+$$
 
 행복하게도, 이 모델은 아주 쉽게 TensorFlow와 TFP의 분포들에 이식될 수 있습니다.
 
