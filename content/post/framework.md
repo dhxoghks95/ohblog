@@ -1,11 +1,11 @@
 ---
-title: "Bayesian Method with TensorFlow - 2. 베이지안 기초공사"
+title: Bayesian Method with TensorFlow Chapter 1. Introduction - 2. 베이지안 기초공사
 date: 2020-08-28T02:25:06+09:00
 categories: ["Bayesian Method with TensorFlow"]
 tags: ["Bayesian", "TensorFlow", "Python"]
 ---
 
-# **Bayesian Method with TensorFlow**
+# **Bayesian Method with TensorFlow - Chapter1 Introduction**
 
 # 2. 베이지안 기초공사
 

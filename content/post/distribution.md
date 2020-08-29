@@ -1,12 +1,12 @@
 ---
-title: Bayesian Method with TensorFlow - 3. 확률 분포
+title: Bayesian Method with TensorFlow Chapter 1. Introduction - 3. 확률분포
 author: 오태환
 date: 2020-08-28T15:37:36+09:00
 categories: ["Bayesian Method with TensorFlow"]
 tags: ["Bayesian", "TensorFlow", "Python"]
 ---
 
-# **Bayesian Method with TensorFlow**
+# **Bayesian Method with TensorFlow - Chapter1 Introduction**
 
 # 3. **확률분포**
 

@@ -1,12 +1,12 @@
 ---
-title: Bayesian Method with TensorFlow - 1. Introduction
+title: Bayesian Method with TensorFlow Chapter 1. Introduction - 1. Introduction
 author: 오태환
 date: 2020-08-26T23:15:00+09:00
 categories: ["Bayesian Method with TensorFlow"]
 tags: ["Bayesian", "TensorFlow", "Python"]
 ---
 
-# **Bayesian Method with TensorFlow**
+# **Bayesian Method with TensorFlow - Chapter1 Introduction**
 
 # 1. Introduction
 
