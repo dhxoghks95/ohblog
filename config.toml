@@ -6,7 +6,7 @@ theme = "hugo-theme-prav"
 
 pygmentsCodeFences = "true"
 pygmentsStyle = "perldoc"
-
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # If you want to track using GA or use disqus for comments, uncomment the 
 # following and add the correct values
 #googleanalytics = ""
