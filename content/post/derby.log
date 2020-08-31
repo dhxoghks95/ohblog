@@ -1,4 +1,4 @@
-Sun Aug 30 23:06:42 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:16 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -638,7 +638,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:42 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:16 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -1278,7 +1278,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:42 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:16 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -1918,7 +1918,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:42 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:16 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -2558,7 +2558,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:44 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:18 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -3198,7 +3198,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:44 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:18 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -3838,7 +3838,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:44 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:18 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -4478,7 +4478,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:44 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:18 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -5118,7 +5118,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:46 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:20 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -5758,7 +5758,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:46 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:20 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -6398,7 +6398,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:46 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:20 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -7038,7 +7038,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:46 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:20 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -7678,7 +7678,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:48 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:23 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -8318,7 +8318,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:49 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:23 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -8958,7 +8958,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:49 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:23 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -9598,7 +9598,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:49 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:23 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -10238,7 +10238,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:51 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:25 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -10878,7 +10878,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:51 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:25 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -11518,7 +11518,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:51 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:25 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -12158,7 +12158,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:51 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:25 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -12798,7 +12798,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:53 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:27 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -13438,7 +13438,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:53 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:27 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -14078,7 +14078,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:53 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:27 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -14718,7 +14718,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:53 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:27 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -15358,7 +15358,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:55 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:29 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -15998,7 +15998,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:55 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:29 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -16638,7 +16638,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:55 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:29 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -17278,7 +17278,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:55 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:29 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -17918,7 +17918,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:57 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:31 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -18558,7 +18558,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:57 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:31 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -19198,7 +19198,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:57 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:31 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -19838,7 +19838,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:57 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:31 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -20478,7 +20478,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:59 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:34 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -21112,7 +21112,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:06:59 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:34 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -21746,7 +21746,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:00 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:34 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -22380,7 +22380,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:00 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:34 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -23014,7 +23014,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:02 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:36 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -23648,7 +23648,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:02 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:36 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -24282,7 +24282,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:02 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:36 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -24916,7 +24916,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:02 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:36 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -25550,7 +25550,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:04 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:38 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -26184,7 +26184,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:04 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:38 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -26818,7 +26818,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:04 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:38 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -27452,7 +27452,7 @@ ERROR XSDB6: Another instance of Derby may have already booted the database C:\U
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
-Sun Aug 30 23:07:04 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
+Sun Aug 30 23:31:38 KST 2020 Thread[nioEventLoopGroup-2-2,10,main] Cleanup action starting
 java.sql.SQLException: Failed to start database 'metastore_db' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@15db9742, see the next exception for details.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
