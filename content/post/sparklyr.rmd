@@ -102,7 +102,7 @@ pryr 패키지의 object_size함수를 사용하면 데이터의 크기를 알 �
 자 이제 불러온 데이터를 조금 봐볼까요?
 
 ```{r}
-print(flights_tbl, n = 10, width = inf)
+print(flights_tbl, n = 10)
 ```
 
 자료구조도 확인해봅시다
