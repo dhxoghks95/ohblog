@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Method with TensorFlow Chapter 2. More on TensorFlow and TensorFlow Probability - 2. Modeling Approaches"
+title: "Bayesian Method with TensorFlow Chapter 2. More on TensorFlow and TensorFlow Probability - 3. Modeling Approaches"
 date: 2020-09-02T21:09:46+09:00
 author : 오태환
 categories: ["Bayesian Method with TensorFlow"]

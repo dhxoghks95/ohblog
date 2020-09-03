@@ -10,7 +10,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # If you want to track using GA or use disqus for comments, uncomment the 
 # following and add the correct values
 #googleanalytics = ""
-#disqusShortname = ""
+disqusShortname = "taihwanoh"
+
+
 
 # The settings below are used throughout the theme.
 # Please update!
