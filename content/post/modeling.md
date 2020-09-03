@@ -110,7 +110,7 @@ mpl.font_manager._rebuild()
     0 upgraded, 0 newly installed, 0 to remove and 39 not upgraded.
     
 
-# **2. Modeling Approaches**
+# **3. Modeling Approaches**
 
 베이지안 모델링을 함에 있어 좋은 시작은 당신의 데이터가 어떻게 발생했는지 생각하는 것입니다. 당신이 전지전능한 신이라고 가정하고 어떻게 데이터셋을 재생산할지 상상해봅시다. 
 
