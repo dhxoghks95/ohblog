@@ -760,11 +760,11 @@ $$ P( A | X ) = \frac{ P( X  | A )P(A) }{P(X) }$$
 $$
 \begin{align}
 & P(L_x = 1| x = 175 ) \gt P(L_x = 0| x = 175 )
-& \frac{ P( x=175  | L_x = 1  )P( L_x = 1 ) }{P(x = 175) } 
 \end{align}
 $$
 $$
 \begin{align}
+& \frac{ P( x=175  | L_x = 1  )P( L_x = 1 ) }{P(x = 175) } 
 \gt \frac{ P( x=175  | L_x = 0  )P( L_x = 0 )}{P(x = 175) }
 \end{align}
 $$
