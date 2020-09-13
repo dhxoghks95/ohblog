@@ -143,11 +143,11 @@ $$
 \frac{1}{N} \sum_{i=1}^N Z_i & =\frac{1}{N} \big(  \sum_{ Z_i = c_1}c_1 + \sum_{Z_i=c_2}c_2 \big) \\
 \end{align}
 $$
+
 $$
 \begin{align}
 & = c_1 \sum_{ Z_i = c_1}\frac{1}{N} + c_2 \sum_{ Z_i = c_2}\frac{1}{N} \\
-& = c_1 \times \text{ (approximate frequency of $c_1$) } \\
- + c_2 \times \text{ (approximate frequency of $c_2$) } \\
+& = c_1 \times \text{ (approximate frequency of $c_1$) } + c_2 \times \text{ (approximate frequency of $c_2$) } \\
 \end{align}
 $$
 
