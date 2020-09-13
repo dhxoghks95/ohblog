@@ -1,7 +1,11 @@
 ---
 title: Bayesian Method with TensorFlow Chapter4 모두가 알지만 모르는 위대한 이론 - 1. 대수의 법칙
+author: 오태환
 date: 2020-09-13T20:22:33+09:00
-draft: true
+categories: ["Bayesian Method with TensorFlow"]
+tags: ["Bayesian", "TensorFlow", "Python"]
+
+
 ---
 
 # **Bayesian Method with TensorFlow - Chapter4 모두가 알지만 모르는 위대한 이론**
