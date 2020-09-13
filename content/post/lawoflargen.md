@@ -120,7 +120,7 @@ mpl.font_manager._rebuild()
 
 $Z_i$가 어떠한 확률 분포에서 뽑은 $N$개의 독립된 샘플이라고 합시다. *대수의 법칙*에 따르면, 기댓값 $E[Z]$가 유한할 때, 다음이 성립합니다.
 
-$$\frac{1}{N} \sum_{i=1}^N Z_i \rightarrow E[ Z ],  \;\;\; N \rightarrow \infty.$$
+$$\frac{1}{N} \sum_{i=1}^N Z_i \rightarrow E[ Z ],   N \rightarrow \infty.$$
 
 글로 써보자면
 
@@ -134,16 +134,25 @@ $$\frac{1}{N} \sum_{i=1}^N Z_i \rightarrow E[ Z ],  \;\;\; N \rightarrow \infty.
 
 두 개의 값 $c_1$과 $c_2$를 가질 수 있는 확률 변수 $Z$가 있다고 해봅시다. 그리고 $Z$의 많은 수의 샘플들을 가지고 있고, 그 각각의 샘플들을 $Z_i$라고 합시다. 대수의 법칙은 우리가 모든 표본들의 평균을 구함으로써 $Z$의 평균을 근사적으로 구할 수 있다고 말합니다. 평균은 다음과 같습니다.
 
-$$ \frac{1}{N} \sum_{i=1}^N \;Z_i $$
+$$ \frac{1}{N} \sum_{i=1}^N Z_i $$
 
 $Z_i$는 $c_1$과 $c_2$만 가질 수 있다고 가정했었습니다. 그래서 우리는 두 값의 합으로 나눌 수 있죠.
 
 $$
 \begin{align}
-\frac{1}{N} \sum_{i=1}^N \;Z_i & =\frac{1}{N} \big(  \sum_{ Z_i = c_1}c_1 + \sum_{Z_i=c_2}c_2 \big) \\
+\frac{1}{N} \sum_{i=1}^N Z_i & =\frac{1}{N} \big(  \sum_{ Z_i = c_1}c_1 + \sum_{Z_i=c_2}c_2 \big) \\
+\end{align}
+$$
+$$
+\begin{align}
 & = c_1 \sum_{ Z_i = c_1}\frac{1}{N} + c_2 \sum_{ Z_i = c_2}\frac{1}{N} \\
 & = c_1 \times \text{ (approximate frequency of $c_1$) } \\
-& \;\;\;\;\;\;\;\;\; + c_2 \times \text{ (approximate frequency of $c_2$) } \\
+ + c_2 \times \text{ (approximate frequency of $c_2$) } \\
+\end{align}
+$$
+
+$$
+\begin{align}
 & \approx c_1 \times P(Z = c_1) + c_2 \times P(Z = c_2 ) \\
 & = E[Z]
 \end{align}
@@ -206,15 +215,15 @@ plt.legend();
 
 또 다른 관련된 질문을 던질 수 있습니다. "얼마나 빨리 기댓값에 수렴할까?". 새로운 그래프를 그려봅시다. 특정한 $N$에 대해서 위의 시도를 천 번 해보고 실제 기댓값에서 평균적으로 얼마나 멀리 떨어져있는지 계산해봅시다. 잠깐, 평균적으로 계산한다고? 이것은 다시 한번 대수의 법칙입니다! 예를 들어 우리는 특정한 $N$에 대해서 다음과 같은 값에 관심이 있습니다.
 
-$$D(N) = \sqrt{ \;E\left[\;\; \left( \frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \;\right)^2 \;\;\right] \;\;}$$
+$$D(N) = \sqrt{ E\left[\left( \frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \right)^2 \right] \}$$
 
 위의 수식은 $N$에서 평균적으로 실제 값에서 얼마나 떨어져있는지의 거리라고 해석할 수 있습니다. (루트를 씌움으로써 위의 거리의 값과 확률 변수의 차원이 같아집니다.) 위의 값이 기댓값이기 때문에 대수의 법칙을 활용해 근사할 수 있습니다. $Z_i$의 평균을 구하는 것 대신 다음의 식을 여러번 해보고 평균을 내도록 하겠습니다.
 
-$$ Y_k = \left( \;\frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \; \right)^2 $$
+$$ Y_k = \left( \frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \right)^2 $$
 
 위의 값을 $N_y$번(기억합시다, 이것은 확률변수입니다) 계산하고 그들을 평균내면 다음과 같이 됩니다.
 
-$$ \frac{1}{N_Y} \sum_{k=1}^{N_Y} Y_k \rightarrow E[ Y_k ] = E\;\left[\;\; \left( \frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \;\right)^2 \right]$$
+$$ \frac{1}{N_Y} \sum_{k=1}^{N_Y} Y_k \rightarrow E[ Y_k ] = E\left[ \left( \frac{1}{N}\sum_{i=1}^NZ_i  - 4.5 \right)^2 \right]$$
 
 마지막으로 루트를 씌웁시다
 
@@ -275,7 +284,7 @@ plt.title( "샘플의 평균이 얼마나 빠르게 수렴하는가? " );
 
 자 이제 우리는 이 수렴하는 정도를 측정할 수 있습니다. 위에서 저는 $\frac{\sqrt{\lambda}}{\sqrt{N}}$ 의 함수를 두 번째 선으로 그렸습니다. 이것은 무작위로 추출된 것이 아닙니다. 대부분의 경우, $Z$와 같이 분포된 확률 변수가 주어지면, $E[Z]$가 수렴하는 정도에 대수의 법칙을 적용하면 
 
-$$ \frac{ \sqrt{ \; Var(Z) \; } }{\sqrt{N} }$$
+$$ \frac{ \sqrt{ Var(Z)  } }{\sqrt{N} }$$
 
 다음과 같이 쓸 수 있습니다. 이것을 아는 것은 유용합니다. 주어진 큰 $N$에서 우리는 평균적으로 추정값으로부터 얼마나 떨어져있는지를 알 수 있습니다. 그러나, 베이지안의 설정에서는 이것은 쓸모없는 결과처럼 보입니다. 베이지안 분석은 불확실성을 받아들입니다. 그렇다면 매우 정확한 숫자를 추가하는 것은 *통계적인*관점에서 어떨까요? 더 큰 $N$에서도 샘플을 뽑는데 계산량이 줄어들기 때문에 좋습니다.
 
@@ -283,7 +292,7 @@ $$ \frac{ \sqrt{ \; Var(Z) \; } }{\sqrt{N} }$$
 
 분산은 간단하게 말하면 근사를 통해 구할 수 있는 또 다른 기댓값중 하나입니다! 우리가 대수의 법칙을 사용해 측정한 기댓값 $\mu$를 가지고 있다면 다음과 같은 방식으로 분산 또한 추정할 수 있습니다.
 
-$$ \frac{1}{N}\sum_{i=1}^N \;(Z_i - \mu)^2 \rightarrow E[ \;( Z - \mu)^2 \;] = Var( Z )$$
+$$ \frac{1}{N}\sum_{i=1}^N (Z_i - \mu)^2 \rightarrow E[ ( Z - \mu)^2 ] = Var( Z )$$
 
 ## **기댓값과 확률**
 
