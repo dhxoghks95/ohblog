@@ -1,5 +1,5 @@
 ---
-title: Bayesian Method with TensorFlow Chapter5 베이지안 손실함수 - 2. 베이지안 머신러닝 2
+title: Bayesian Method with TensorFlow Chapter6 사전 분포 결정하기 - 1. 직관적으로 사전 분포 결정하기
 author: 오태환
 date: 2020-09-22T18:16:07+09:00
 categories: ["Bayesian Method with TensorFlow"]
